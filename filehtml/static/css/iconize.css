@@ -1,0 +1,155 @@
+#item-list a {
+    padding-left: 20px;
+    background: transparent url(../images/icons/unknown.png) no-repeat center left;
+}
+
+#item-list a.folder {
+    padding-left: 20px;
+    background: transparent url(../images/icons/folder.png) no-repeat center left !important;
+}
+
+#item-list a[href$='.doc'], #item-list a[href$='.rtf'], #item-list a[href$='.docx'] {
+	padding-left: 20px;
+	background: transparent url(../images/icons/doc.png) no-repeat center left;
+}
+
+#item-list a[href$='.txt'], #item-list a[href$='.log'], #item-list a[href$='.ini'] {
+	padding-left: 20px;
+	background: transparent url(../images/icons/txt.png) no-repeat center left;
+}
+
+#item-list a[href$='.htm'], #item-list a[href$='.html'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/htm.png) no-repeat center left;
+}
+
+#item-list a[href$='.xml'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/xml.png) no-repeat center left;
+}
+
+#item-list a[href$='.xsl'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/xsl.png) no-repeat center left;
+}
+
+#item-list a[href$='.css'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/css.png) no-repeat center left;
+}
+
+#item-list a[href$='.ini'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/ini.png) no-repeat center left;
+}
+
+#item-list a[href$='.vsd'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/vsd.png) no-repeat center left;
+}
+
+#item-list a[href$='.xps'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/xps.png) no-repeat center left;
+}
+
+#item-list a[href$='.rtf'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/rtf.png) no-repeat center left;
+}
+
+#item-list a[href$='.ttf'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/ttf.png) no-repeat center left;
+}
+
+#item-list a[href$='.mpp'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/mpp.png) no-repeat center left;
+}
+
+#item-list a[href$='.one'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/one.png) no-repeat center left;
+}
+
+#item-list a[href$='.psd'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/psd.png) no-repeat center left;
+}
+
+#item-list a[href$='.xls'], #item-list a[href$='.xlsx'] {
+    padding: 5px 0 5px 20px;
+	background: transparent url(../images/icons/xls.png) no-repeat center left;
+}
+
+#item-list a[href$='.ppt'], #item-list a[href$='.pptx'], #item-list a[href$='.pps'] {
+    padding-left: 20px;
+	background: transparent url(../images/icons/ppt.png) no-repeat center left;
+}
+
+#item-list a[href$='.pdf'] {
+	padding-left: 20px;
+	background: transparent url(../images/icons/pdf.png) no-repeat center left;
+}
+
+#item-list a[href$='.zip'], #item-list a[href$='.gzip'], #item-list a[href$='.bzip'], #item-list a[href$='.ace'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/zip.png) no-repeat center left;
+}
+
+#item-list a[href$='.rar'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/rar.png) no-repeat center left;
+}
+
+#item-list a[href$='.JPG'], #item-list a[href$='.jpg'], #item-list a[href$='.jpeg'] {
+	padding-left: 20px;
+	background: transparent url(../images/icons/jpg.png) no-repeat center left;
+}
+
+#item-list a[href$='.bmp'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/bmp.png) no-repeat center left;
+}
+
+#item-list a[href$='.gif'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/gif.png) no-repeat center left;
+}
+
+#item-list a[href$='.png'], #item-list a[href$='.PNG'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/png.png) no-repeat center left;
+}
+
+#item-list a[href$='.avi'], #item-list a[href$='.wmv'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/avi.png) no-repeat center left;
+}
+
+#item-list a[href$='.mpg'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/mpg.png) no-repeat center left;
+}
+
+#item-list a[href$='.mp3'], #item-list a[href$='.mp3'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/mp3.png) no-repeat center left;
+}
+
+#item-list a[href$='.mp4'], #item-list a[href$='.mpg'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/mp4.png) no-repeat center left;
+}
+
+#item-list a[href$='.js'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/js.png) no-repeat center left;
+}
+
+#item-list a[href$='.php'] {
+    padding-left: 20px;
+    background: transparent url(../images/icons/php.png) no-repeat center left;
+}
+

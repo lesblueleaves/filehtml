@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>D3A User Portal</title>
+    <link rel="stylesheet" media="all" type="text/css" href="static/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" media="all" type="text/css" href="static/bootstrap/css/bootstrap.cosmo.min.css" />
+    <link rel="stylesheet" media="all" type="text/css"  href="static/css/iconize.css" />
+
+    <script type="text/javascript" src="static/js/jquery-2.0.3.js"></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootbox.min.js"></script>
+    <script type="text/javascript" src="static/js/backbone/underscore-1.4.3.js"></script>
+    <script type="text/javascript" src="static/js/backbone/json2.js"></script>
+    <script type="text/javascript" src="static/js/backbone/backbone.js"></script>
+    <script type="text/javascript" src="static/js/moment.min.js"></script>
+    <script type="text/javascript" src="static/js/filemanage.js"></script>
+
+    <style type="text/css">
+        .breadcrumb {
+            font-size: 90%;
+            font-weight: bold;
+        }
+        .breadcrumb .leaf {
+            color: #888;
+        }
+        .breadcrumb .dropdown li {
+            display: block;
+        }
+        .breadcrumb .dropdown-menu:after {
+            border-bottom: 6px solid #FFFFFF;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            content: "";
+            display: inline-block;
+            left: 10px;
+            position: absolute;
+            top: -6px;
+        }
+        .breadcrumb .dropdown-menu:before {
+            border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            content: "";
+            display: inline-block;
+            left: 9px;
+            position: absolute;
+            top: -7px;
+        }
+        .loadingIndicator {
+            display: none;
+        }
+        .loadingIndicator img {
+            margin: 100px 45%;
+        }
+        #nav-items {
+
+        }
+        .progressIndicator {
+            display: block;
+            height: 100%;
+            background-color: #f1a165;
+            background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+            background-image: -webkit-linear-gradient(top, #f1a165, #f36d0a);
+            background-image: -moz-linear-gradient(top, #f1a165, #f36d0a);
+            background-image: -ms-linear-gradient(top, #f1a165, #f36d0a);
+            background-image: -o-linear-gradient(top, #f1a165, #f36d0a);
+        }
+    </style>
+</head>
+
+<body  style="padding-top: 60px;padding-bottom: 40px;" data-spy="scroll" data-target=".subnav" data-offset="50">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a href="#" style="padding-top: 12px; padding-bottom: 0px;" class="brand">D3A User Portal</a>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="showt"></div>
+    <div class="row">
+        <div class="span12 columns">
+            <div id="file-explorer" class="detail-wrapper">
+
+                <form id="uploadForm" action="" name="uploadForm" style="float:right;padding-top: 3px;" target="upload_target" data-remote="true" enctype="multipart/form-data">
+                    <input name="force" type="hidden" value="true"/>
+                    <input class="pick" type="file" name="data" style="display: none;"/>
+                    <a class="btn btn-success browse" href="#" data-toggle="tooltip" data-placement="bottom" title="Upload a file"><i class="icon-white icon-upload"></i> Upload</a>
+                    <a class="btn btn-success mkdir"  data-toggle="tooltip" data-placement="bottom" title="Create a folder"><i class="icon-white icon-plus"></i> Folder</a>
+                    <a class="btn btn-success reload" href="#" data-toggle="tooltip" data-placement="bottom" title="Refresh"><i class="icon-white icon-refresh"></i> Refresh</a>
+                </form>
+
+
+                <ul id="nav-items" class="breadcrumb">
+                    <span class="progressIndicator" style="width: 25%"></span>
+                    <li >Home </li>
+
+                </ul>
+
+                <table class="table table-bordered table-condensed table-hover table-striped" id="item-list">
+                    <thead><tr>
+                        <th id="currentPath">Name</th>
+                        <th width="150" style="display:none;">Type</th>
+                        <th nowrap="nowrap" width="60">Size</th>
+                        <th width="142" nowrap="nowrap">Last Modified</th>
+                        <th width="112" nowrap="nowrap">&nbsp;</th>
+                    </tr></thead>
+                    <tbody>
+                    <tr class="loadingIndicator"><td colspan="5"></td></tr>
+                    </tbody>
+                    <tfoot><tr class="info"><td colspan="5" id="stats"><span class="info" style="font-size: 80%;"></span></td></tr></tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="well">
+    <div class="container">
+        <p class="pull-right"><a href="#">To TOP</a></p>
+        <p>&copy;&nbsp;2012-2013 Cisco Systems, All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Templates-->
+
+<script type="text/template" id="stats-template">
+    Folders: 0, Files: 0, Size: 0
+</script>
+
+<script type="text/template" id="fileitem-template">
+    <table class="table striped">
+        <tbody>
+        <% _.each(files,function(file){ %>
+        <tr>
+            <td><%= file.get('name')%></td>
+            <td><%= file.get('size')%></td>
+        </tr>
+        <% });%>
+        </tbody>
+    </table>
+</script>
+
+<script type="text/template" id="nav-template">
+    <% _.each(navs,function(nav){ %>
+
+    <a href="<%= nav.get('path')%>"><%= nav.get('name')%></a> <li class="divider">/</li>
+
+
+    <% });%>
+
+</script>
+
+<script type="text/template" id="item-template">
+    <table class="table striped">
+        <tbody>
+        <% _.each(files,function(file){ %>
+        <tr id="<%= curpath%><%= file.get('name')%>"  data-name="<%= file.get('name')%>">
+            <td  class="filename <%= file.get('isfolder')%> <%= file.get('ext') %>"><a class="<%= file.get('isfolder')%>" href="#<%= curpath%><%= file.get('name')%>" title="<%= file.get('name')%>"><%= file.get('shortname')%><%= file.get('ext')%></a></td>
+            <td style="display:none;"><%= file.get('contenttype')%></td>
+            <% if ( "1" == file.get('folder') ) { %>
+            <td nowrap="nowrap" data-size=" '' " style="text-align:right;"> - </td>
+            <% } else { %>
+            <td nowrap="nowrap" data-size="<%= file.get('size')%>" style="text-align:right;">
+                <%= file.get('prettySize')%></td>
+            <% } %>
+            <td nowrap="nowrap" style="text-align: center;"> <%= file.get('prettyDate')%></td>
+            <td nowrap="nowrap" class="op">
+                <% if ( "1" == file.get('folder') ) { %>
+                <button title="Open" class="btn btn-mini open" href="#">
+                    <i class="icon-folder-open"></i>
+                </button>
+                <% } else { %>
+                <button title="Edit" class="btn btn-mini edit" href="#">
+                    <i class="icon-pencil"></i>
+                </button>
+                <% } %>
+                <button title="Download" class="btn btn-mini download" href="#">
+                    <i class="icon-download-alt"></i>
+                </button>
+
+                <button title="Delete" class="btn btn-mini delete" href="#"><i class="icon-trash"></i></button>
+
+            </td>
+
+        </tr>
+        <% });%>
+        </tbody>
+    </table>
+
+
+</script>
+<iframe id="upload_target" name="upload_target" src="" style="width:0;height:0;border:0px solid #fff;"></iframe>
+</body>
+</html>
